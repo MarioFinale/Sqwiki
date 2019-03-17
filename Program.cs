@@ -13,16 +13,17 @@ namespace Sqwiki
             Utils.Utils.Log_Filepath = Utils.Utils.Exepath + "sqlog.psv";
             String tdir = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "sqs";
             ConfigFile cfg = new ConfigFile(Utils.Utils.ConfigFilePath);
-            Bot Workerbot = new Bot(cfg);
+            Bot Workerbot = new Bot(cfg, Utils.Utils.Log_Filepath);
+            string tfilename = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "reqs" + Utils.Utils.DirSeparator  + "sqwiki.runme";
 
             do
             {
                 System.Threading.Thread.Sleep(500);
-                if (!(System.IO.File.Exists(Utils.Utils.Exepath + Utils.Utils.DirSeparator + "sqwiki.runme")))
+                if (!(System.IO.File.Exists(tfilename)))
                 {
                     continue;
                 }
-                System.IO.File.Delete(Utils.Utils.Exepath + Utils.Utils.DirSeparator + "sqwiki.runme");
+                System.IO.File.Delete(tfilename);
                 int sqindex = 1;
                 for (int i = 1; i < 350; i++)
                 {
