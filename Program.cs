@@ -10,10 +10,12 @@ namespace Sqwiki
     {
         private static void Main(string[] args)
         {
-            Utils.Utils.Log_Filepath = Utils.Utils.Exepath + "sqlog.psv";
+            string Log_Filepath = Utils.Utils.Exepath + "sqlog.psv";
+            string Config_Filepath = Utils.Utils.Exepath + "sqwiki.cfg";
+
             String tdir = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "sqs";
-            ConfigFile cfg = new ConfigFile(Utils.Utils.ConfigFilePath);
-            Bot Workerbot = new Bot(cfg, Utils.Utils.Log_Filepath);
+            ConfigFile cfg = new ConfigFile(Config_Filepath);
+            Bot Workerbot = new Bot(cfg, Log_Filepath);
             string tfilename = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "reqs" + Utils.Utils.DirSeparator  + "sqwiki.runme";
 
             do
@@ -85,8 +87,8 @@ namespace Sqwiki
                     }
                 }
                 sqindex = 0;
-                System.IO.File.Delete(Utils.Utils.Log_Filepath);
-                System.IO.File.Create(Utils.Utils.Log_Filepath).Close();
+                System.IO.File.Delete(Log_Filepath);
+                System.IO.File.Create(Log_Filepath).Close();
             } while (true);
         }
 
@@ -104,11 +106,7 @@ namespace Sqwiki
         private string[] AnalyzeLine(string ttext)
         {
             List<string> tlist = new List<string>();
-
-
-
-
-
+                                          
 
 
 
