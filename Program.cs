@@ -11,11 +11,10 @@ namespace Sqwiki
         private static void Main(string[] args)
         {
             string Log_Filepath = Utils.Utils.Exepath + "sqlog.psv";
-            string Config_Filepath = Utils.Utils.Exepath + "sqwiki.cfg";
+            string ConfigFile = Utils.Utils.Exepath + "Config.cfg";
 
-            String tdir = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "sqs";
-            ConfigFile cfg = new ConfigFile(Config_Filepath);
-            Bot Workerbot = new Bot(cfg, Log_Filepath);
+            String tdir = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "sqs";         
+            Bot Workerbot = new Bot(ConfigFile, Log_Filepath);
             string tfilename = Utils.Utils.Exepath + Utils.Utils.DirSeparator + "reqs" + Utils.Utils.DirSeparator  + "sqwiki.runme";
 
             do
